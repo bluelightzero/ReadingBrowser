@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:id="@+id/menu_back"
+		android:icon="@drawable/back"
+		android:title="@string/menu_back"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_forward"
+		android:icon="@drawable/forward"
+		android:title="@string/menu_forward"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_refresh"
+		android:icon="@drawable/refresh"
+		android:title="@string/menu_refresh"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_bookmarks"
+		android:icon="@drawable/bookmarks"
+		android:title="@string/menu_bookmarks"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_history"
+		android:icon="@drawable/history"
+		android:title="@string/menu_history"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_edit"
+		android:icon="@drawable/edit"
+		android:title="@string/menu_edit"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_delete"
+		android:icon="@drawable/delete"
+		android:title="@string/menu_delete"
+		android:showAsAction="ifRoom" />
+	<item android:id="@+id/menu_settings"
+		android:icon="@drawable/settings"
+		android:title="@string/menu_settings"
+		android:showAsAction="ifRoom" />
+</menu>

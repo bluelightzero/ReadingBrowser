@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">Reading Browser</string>
+<string name="hello">Hello World!</string>
+<string name="menu_back">Back</string>
+<string name="menu_forward">Forward</string>
+<string name="menu_refresh">Refresh</string>
+<string name="menu_edit">Edit</string>
+<string name="menu_bookmarks">Bookmarks</string>
+<string name="menu_history">History</string>
+<string name="menu_delete">Delete</string>
+<string name="menu_settings">Settings</string>
+</resources>
