@@ -31,16 +31,17 @@ import android.graphics.Bitmap;
 public class MainActivity extends Activity
 {
 
-		WebView webView;
+	WebView webView;
 
-		Bookmark[] bookmarks = new Bookmark[0];
-		Bookmark currentBookmark;
-		
-		boolean isLink = true;
+	Bookmark[] bookmarks = new Bookmark[0];
+	Bookmark currentBookmark;
+	
+	boolean isLink = true;
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         
         webView = new WebView(this);
@@ -56,20 +57,21 @@ public class MainActivity extends Activity
     }
     
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(Configuration newConfig)
+    {
     	super.onConfigurationChanged(newConfig);
     }
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
 	{
-			if(currentBookmark!=null)
-				if ((keyCode == KeyEvent.KEYCODE_BACK) && currentBookmark.canGoBack())
-				{
-						loadUrl(currentBookmark.back());
-						return true;
-				}
-			return super.onKeyDown(keyCode, event);
+		if(currentBookmark!=null)
+			if ((keyCode == KeyEvent.KEYCODE_BACK) && currentBookmark.canGoBack())
+			{
+				loadUrl(currentBookmark.back());
+				return true;
+			}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
@@ -83,46 +85,40 @@ public class MainActivity extends Activity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-			switch (item.getItemId())
-			{
-					case R.id.menu_back:
-						if(currentBookmark!=null)
-							loadUrl(currentBookmark.back());
-						return true;
-					case R.id.menu_forward:
-						if(currentBookmark!=null)
-							loadUrl(currentBookmark.forward());
-						return true;
-					case R.id.menu_refresh:
-						if(currentBookmark!=null)
-							loadUrl(currentBookmark.getPage());
-						return true;
-					case R.id.menu_bookmarks:
-						openBookMarks();
-						return true;
-					case R.id.menu_history:
-						openHistory();
-						return true;
-					case R.id.menu_edit:
-						editBookmark();
-						return true;
-					case R.id.menu_delete:
-						confirmDelete();
-						return true;
-					default:
-						return super.onOptionsItemSelected(item);
-			}
+		switch (item.getItemId())
+		{
+			case R.id.menu_back:
+				if(currentBookmark!=null)
+					loadUrl(currentBookmark.back());
+				return true;
+			case R.id.menu_forward:
+				if(currentBookmark!=null)
+					loadUrl(currentBookmark.forward());
+				return true;
+			case R.id.menu_refresh:
+				if(currentBookmark!=null)
+					loadUrl(currentBookmark.getPage());
+				return true;
+			case R.id.menu_bookmarks:
+				openBookMarks();
+				return true;
+			case R.id.menu_history:
+				openHistory();
+				return true;
+			case R.id.menu_edit:
+				editBookmark();
+				return true;
+			case R.id.menu_delete:
+				confirmDelete();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
 	}
 
-	/*
 	@Override
-	public void onStop() {
-		saveBookmarks();
-	super.onStop();
-	}
-	*/
-	@Override
-	public void onPause() {
+	public void onPause()
+	{
 		saveBookmarks();
 		super.onPause();
 	}
