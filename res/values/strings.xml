@@ -10,4 +10,6 @@
 <string name="menu_history">History</string>
 <string name="menu_delete">Delete</string>
 <string name="menu_settings">Settings</string>
+<string name="pref_javascript">Enable Javascript</string>
+<string name="pref_web_page">Website and Source Code</string>
 </resources>

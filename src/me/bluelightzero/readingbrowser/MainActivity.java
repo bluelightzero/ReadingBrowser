@@ -27,6 +27,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import android.graphics.Bitmap;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.content.SharedPreferences;
+import android.content.Intent;
 
 public class MainActivity extends Activity
 {
@@ -46,8 +50,6 @@ public class MainActivity extends Activity
         
         webView = new WebView(this);
         //webView.loadUrl("http://www.google.co.uk");
-        WebSettings webSettings = webView.getSettings();
-		webSettings.setJavaScriptEnabled(true);
 		webView.setWebViewClient(new ReaderClient());
         setContentView(webView);
 		setTitle("Reading Browser - Choose a bookmark");	
@@ -55,7 +57,7 @@ public class MainActivity extends Activity
         openBookMarks();
         
     }
-    
+        
     @Override
     public void onConfigurationChanged(Configuration newConfig)
     {
@@ -111,9 +113,22 @@ public class MainActivity extends Activity
 			case R.id.menu_delete:
 				confirmDelete();
 				return true;
+			case R.id.menu_settings:
+				Intent intent = new Intent(this, SettingsActivity.class);
+				startActivity(intent);
+				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	@Override
+	public void onStart()
+	{
+		SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        WebSettings webSettings = webView.getSettings();
+		webSettings.setJavaScriptEnabled(sharedPrefs.getBoolean("pref_javascript", true));
+		super.onStart();
 	}
 
 	@Override
@@ -199,6 +214,10 @@ public class MainActivity extends Activity
 			});
 			builderSingle.show();
 		}
+		else
+		{
+			Toast.makeText(this,"Must select bookmark first.",Toast.LENGTH_SHORT).show();
+		}
 	}
 		
 	public void createBookmark()
@@ -278,6 +297,10 @@ public class MainActivity extends Activity
 
 			builderSingle.show();
 		}
+		else
+		{
+			Toast.makeText(this,"Must select bookmark first.",Toast.LENGTH_SHORT).show();
+		}
 	}
 
   
@@ -313,6 +336,10 @@ public class MainActivity extends Activity
 			});
 
 			builderSingle.show();
+		}
+		else
+		{
+			Toast.makeText(this,"Must select bookmark first.",Toast.LENGTH_SHORT).show();
 		}
 	}
   
@@ -453,7 +480,6 @@ public class MainActivity extends Activity
 			}
 		}
 	}
-	
 		
 	class Bookmark
 	{

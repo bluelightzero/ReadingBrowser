@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="pref_javascript"
+        android:title="@string/pref_javascript"
+        android:defaultValue="true" />
+    <Preference
+		android:key="pref_web_page"
+		android:title="@string/pref_web_page" >
+		<intent android:action="android.intent.action.VIEW"
+		        android:data="http://github.com/bluelightzero/ReadingBrowser" />
+	</Preference>
+</PreferenceScreen>
