@@ -34,6 +34,33 @@ import android.content.Intent;
 import android.util.Log;
 import java.util.ArrayList;
 
+/*
+	Bookmark Logic:
+		Before you get confused with the way this
+		application's history works let me explain.
+		
+		Each bookmark has its own unique History which
+		is a queue of 1-10 items When a past item is
+		visited by using the history menu or pressing
+		back it simply moves a pointer (Bookmark.current)
+		rather than moving the item to the end.
+		
+		The pointer is preserved when leaving the application.
+
+	Detecting refresh/link tap:
+		I know it is a very hackish way of doing it but I
+		see no other way than have a variable 'isLink' that
+		is set to true whenever 'shouldOverrideUrlLoading'
+		is called and false when 'loadUrl' is called.
+		The only method that correctly returns the page url
+		(without strange extra's like about:blank) is
+		onPageFinished.
+		
+		I hope to perfect this method as it does have bugs.
+		if anyone can suggest a better method (subclassing?)
+		please post it on http://github.com/bluelight/ReadingBrowser
+*/
+
 public class MainActivity extends Activity
 {
 
@@ -482,6 +509,13 @@ public class MainActivity extends Activity
 					currentBookmark.add(url);
 				}
 			}
+			Toast.makeText(MainActivity.this,url,Toast.LENGTH_SHORT).show();
+		}
+		
+		@Override
+		public void doUpdateVisitedHistory(WebView view, String url, boolean isReload)
+		{
+			//Toast.makeText(MainActivity.this,"History\n"+url+"\nisReload:"+isReload,Toast.LENGTH_SHORT).show();
 		}
 	}
 		
