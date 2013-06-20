@@ -53,6 +53,8 @@ public class MainActivity extends Activity
         webView = new WebView(this);
         //webView.loadUrl("http://www.google.co.uk");
 		webView.setWebViewClient(new ReaderClient());
+		WebSettings webSettings = webView.getSettings();
+		webSettings.setBuiltInZoomControls(true);
         setContentView(webView);
 		setTitle("Reading Browser - Choose a bookmark");	
         loadBookmarks();
