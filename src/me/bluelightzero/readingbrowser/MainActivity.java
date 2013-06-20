@@ -509,14 +509,8 @@ public class MainActivity extends Activity
 					currentBookmark.add(url);
 				}
 			}
-			Toast.makeText(MainActivity.this,url,Toast.LENGTH_SHORT).show();
 		}
 		
-		@Override
-		public void doUpdateVisitedHistory(WebView view, String url, boolean isReload)
-		{
-			//Toast.makeText(MainActivity.this,"History\n"+url+"\nisReload:"+isReload,Toast.LENGTH_SHORT).show();
-		}
 	}
 		
 	class Bookmark
