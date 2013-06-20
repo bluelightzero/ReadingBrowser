@@ -31,6 +31,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.content.SharedPreferences;
 import android.content.Intent;
+import android.util.Log;
+import java.util.ArrayList;
 
 public class MainActivity extends Activity
 {
